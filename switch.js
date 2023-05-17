@@ -1,6 +1,9 @@
 <script type="module">
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  import { initializeApp } from "/firebase/app";
+  import { getDatabase, ref, child, push, update, onValue } from "/firebase/database";
+
   const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
     authDomain: "p5js-firebase-rip.firebaseapp.com",
@@ -13,10 +16,8 @@
   };
   
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //var database = firebase.database();
+  const app = initializeApp(firebaseConfig);
   
-  import { getDatabase, ref, child, push, update, onValue } from "firebase/database";
   const db = getDatabase();
   const tracking = ref(db, 'data1');
 
