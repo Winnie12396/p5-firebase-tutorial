@@ -1,6 +1,7 @@
+<script type="module">
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
     authDomain: "p5js-firebase-rip.firebaseapp.com",
     databaseURL: "https://p5js-firebase-rip-default-rtdb.firebaseio.com",
@@ -13,13 +14,7 @@ const firebaseConfig = {
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  var database = firebase.database();
-  
-  /*function writeUserData(userId,value) {
-    database.ref(userId).set({
-      data1: value,
-    });
-  }*/
+  //var database = firebase.database();
   
   import { getDatabase, ref, child, push, update, onValue } from "firebase/database";
   const db = getDatabase();
@@ -82,3 +77,5 @@ const firebaseConfig = {
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * max) + min;
   }
+
+</script>
