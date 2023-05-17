@@ -26,7 +26,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const db = getDatabase(app);
+//const db = getDatabase(app);
 //const tracking = ref(db, 'data1');
 
 // event listener: value changed
@@ -37,7 +37,7 @@ const db = getDatabase(app);
 });*/
 
 function writeNewPost(userId, val) {
-    //const db = getDatabase();
+    const db = getDatabase();
 
     // A post entry.
     const postData = {
