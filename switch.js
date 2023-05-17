@@ -1,6 +1,15 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  
+
+  //import { initializeApp } from "/firebase/app";
+  initializeApp = require("/firebase/app");
+  //import { getDatabase, ref, child, push, update, onValue } from "/firebase/database";
+  getDatabase = require("/firebase/database");
+  ref = require("/firebase/database");
+  child = require("/firebase/database");
+  push = require("/firebase/database");
+  update = require("/firebase/database");
+  onValue = require("/firebase/database");
 
   const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
@@ -14,21 +23,10 @@
   };
   
   
-  
-  //import { initializeApp } from "/firebase/app";
-  initializeApp = require("/firebase/app");
-  //import { getDatabase, ref, child, push, update, onValue } from "/firebase/database";
-  getDatabase = require("/firebase/database");
-  ref = require("/firebase/database");
-  child = require("/firebase/database");
-  push = require("/firebase/database");
-  update = require("/firebase/database");
-  onValue = require("/firebase/database");
-
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
-  const db = getDatabase();
+  const db = getDatabase(app);
   const tracking = ref(db, 'data1');
 
   // event listener: value changed
