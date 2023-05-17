@@ -15,23 +15,23 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
   
-  function writeUserData(userId,value) {
+  /*function writeUserData(userId,value) {
     database.ref(userId).set({
       data1: value,
     });
-  }
+  }*/
   
   import { getDatabase, ref, child, push, update, onValue } from "firebase/database";
-  const db = getDatabase();
-  const starCountRef = ref(db, 'data1');
+  /*const db = getDatabase();
+  const tracking = ref(db, 'data1');
 
   // event listener: value changed
-  onValue(starCountRef, (snapshot) => {
+  onValue(tracking, (snapshot) => {
     const data = snapshot.val();
     //updateStarCount(postElement, data);
     console.log(data);
     drawCircle();
-  });
+  });*/
 
   function writeNewPost(userId, val) {
     //const db = getDatabase();
@@ -48,7 +48,8 @@ const firebaseConfig = {
     const updates = {};
     updates['/posts/' + newPostKey] = postData;
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
+    
+    drawCircle();
     return update(ref(db), updates);
   }
 
