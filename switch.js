@@ -24,7 +24,6 @@
   onValue(tracking, (snapshot) => {
     const data = snapshot.val();
     //updateStarCount(postElement, data);
-    console.log(data);
     drawCircle();
   });
 
