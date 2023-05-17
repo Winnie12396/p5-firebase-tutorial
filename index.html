@@ -22,7 +22,7 @@
   <body>
     <main>
     </main>
-    <script src="switch.js"></script>
+    <!-- <script src="switch.js"></script> -->
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -64,6 +64,35 @@
         updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
         return update(ref(db), updates);
+      }
+      
+      var val = true;
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        button = createButton('click me');
+        button.position(windowWidth / 2, windowHeight / 2);
+      }
+
+      function draw() {
+        background(150);
+        button.mousePressed(change);
+        text(val, windowWidth / 2, windowHeight / 2 - 30);
+      }
+
+
+      function change() {
+        if (val) val = false;
+        else val = true;
+        writeNewPost('/', val);
+        drawCircle();
+      }
+      
+      function drawCircle() {
+        ellipse(getRandomInt(100, 1820), getRandomInt(100, 980), 50);
+      }
+      
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * max) + min;
       }
     </script>
   </body>
