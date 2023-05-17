@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getDatabase, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+//import { getDatabase, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 
 var val = true;
 function setup() {
@@ -22,7 +22,7 @@ function change() {
     writeNewPost('/', val)
 }
 
-const firebaseConfig = {
+/*const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
     authDomain: "p5js-firebase-rip.firebaseapp.com",
     databaseURL: "https://p5js-firebase-rip-default-rtdb.firebaseio.com",
@@ -31,12 +31,12 @@ const firebaseConfig = {
     messagingSenderId: "1068377010670",
     appId: "1:1068377010670:web:89f5319d23dd55ccc29eff",
     measurementId: "G-W5MP985XXQ"
-};
+};*/
 
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+//const app = initializeApp(firebaseConfig);
+//const database = getDatabase(app);
 
 function writeNewPost(userId, val) {
     const db = getDatabase();
