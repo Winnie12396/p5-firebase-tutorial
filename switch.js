@@ -38,7 +38,7 @@ function change() {
 //const app = initializeApp(firebaseConfig);
 //const database = getDatabase(app);
 
-function writeNewPost(userId, val) {
+/*function writeNewPost(userId, val) {
     const db = getDatabase();
 
     // A post entry.
@@ -55,7 +55,7 @@ function writeNewPost(userId, val) {
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
     return update(ref(db), updates);
-}
+}*/
 
 
 
