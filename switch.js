@@ -2,6 +2,26 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 
+var val = true;
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    button = createButton('click me');
+    button.position(windowWidth / 2, windowHeight / 2);
+}
+
+function draw() {
+    background(150);
+    button.mousePressed(change);
+    text(val, windowWidth / 2, windowHeight / 2 - 30);
+}
+
+
+function change() {
+    if (val) val = false;
+    else val = true;
+    writeNewPost('/', val)
+}
+
 const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
     authDomain: "p5js-firebase-rip.firebaseapp.com",
@@ -16,8 +36,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-//const db = getDatabase(app);
+const database = getDatabase(app);
 
 function writeNewPost(userId, val) {
     const db = getDatabase();
@@ -39,24 +58,6 @@ function writeNewPost(userId, val) {
 }
 
 
-var val = true;
-function setup() {
-    createCanvas(windowWidth, windowHeight);
-    button = createButton('click me');
-    button.position(windowWidth / 2, windowHeight / 2);
-}
 
-function draw() {
-    background(150);
-    button.mousePressed(change);
-    text(val, windowWidth / 2, windowHeight / 2 - 30);
-}
-
-
-function change() {
-    if (val) val = false;
-    else val = true;
-    writeNewPost('/', val)
-}
 
 
