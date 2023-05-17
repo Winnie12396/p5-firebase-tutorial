@@ -3,13 +3,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 //import { getDatabase, ref, child, push, update, onValue } from "/firebase/database";
-/*initializeApp = require("/firebase/app");
-getDatabase = require("/firebase/database");
-ref = require("/firebase/database");
-child = require("/firebase/database");
-push = require("/firebase/database");
-update = require("/firebase/database");
-onValue = require("/firebase/database");*/
 
 const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
@@ -57,7 +50,6 @@ function writeNewPost(userId, val) {
 }
 
 
-
 var val = true;
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -66,7 +58,7 @@ function setup() {
 }
 
 function draw() {
-    background(255);
+    background(150);
     button.mousePressed(change);
     text(val, windowWidth / 2, windowHeight / 2 - 30);
 }
