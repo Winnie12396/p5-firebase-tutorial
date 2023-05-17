@@ -22,7 +22,7 @@ const firebaseConfig = {
   }*/
   
   import { getDatabase, ref, child, push, update, onValue } from "firebase/database";
-  /*const db = getDatabase();
+  const db = getDatabase();
   const tracking = ref(db, 'data1');
 
   // event listener: value changed
@@ -31,7 +31,7 @@ const firebaseConfig = {
     //updateStarCount(postElement, data);
     console.log(data);
     drawCircle();
-  });*/
+  });
 
   function writeNewPost(userId, val) {
     //const db = getDatabase();
