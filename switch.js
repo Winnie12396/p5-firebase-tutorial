@@ -20,11 +20,21 @@ const firebaseConfig = {
       data1: value,
     });
   }
+  
+  import { getDatabase, ref, child, push, update, onValue } from "firebase/database";
+  const db = getDatabase();
+  const starCountRef = ref(db, 'data1');
 
-  import { getDatabase, ref, child, push, update } from "firebase/database";
+  // event listener: value changed
+  onValue(starCountRef, (snapshot) => {
+    const data = snapshot.val();
+    //updateStarCount(postElement, data);
+    console.log(data);
+    drawCircle();
+  });
 
   function writeNewPost(userId, val) {
-    const db = getDatabase();
+    //const db = getDatabase();
 
     // A post entry.
     const postData = {
@@ -41,6 +51,8 @@ const firebaseConfig = {
 
     return update(ref(db), updates);
   }
+
+  
   
   var val = true;
   function setup() {
@@ -54,10 +66,18 @@ const firebaseConfig = {
     button.mousePressed(change);
     text(val,windowWidth/2, windowHeight/2-30);
   }
+
+  function drawCircle() {
+      ellipse(getRandomInt(100, 1820), getRandomInt(100, 980), 50);
+  }
   
   function change() {
     if (val)val = false;
     else val = true;
     //writeUserData('/', val);
     writeNewPost('/', val)
+  }
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * max) + min;
   }
