@@ -1,8 +1,6 @@
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, child, push, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
-//import { getDatabase, ref, child, push, update, onValue } from "/firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
@@ -20,14 +18,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //const db = getDatabase(app);
-//const tracking = ref(db, 'data1');
-
-// event listener: value changed
-/*onValue(tracking, (snapshot) => {
-  const data = snapshot.val();
-  //updateStarCount(postElement, data);
-  drawCircle();
-});*/
 
 function writeNewPost(userId, val) {
     const db = getDatabase();
@@ -45,7 +35,6 @@ function writeNewPost(userId, val) {
     updates['/posts/' + newPostKey] = postData;
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
-    drawCircle();
     return update(ref(db), updates);
 }
 
@@ -63,17 +52,11 @@ function draw() {
     text(val, windowWidth / 2, windowHeight / 2 - 30);
 }
 
-function drawCircle() {
-    ellipse(getRandomInt(100, 1820), getRandomInt(100, 980), 50);
-}
 
 function change() {
     if (val) val = false;
     else val = true;
-    //writeUserData('/', val);
     writeNewPost('/', val)
 }
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * max) + min;
-}
+
