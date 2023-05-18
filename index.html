@@ -7,100 +7,17 @@
     <meta charset="utf-8" />
     
     
-    <!-- for firebase
-      <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-    -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
-    <!-- for firebase-->
+  <!-- for firebase-->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@6.1.0/firebase.js"></script>
+  <!-- for firebase-->
     
     
   </head>
   <body>
     <main>
     </main>
-    <!-- <script src="switch.js"></script> -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
-      /*initializeApp = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js");
-      getDatabase = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");
-      ref = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");
-      child = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");
-      push = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");
-      update = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");
-      onValue = require("https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js");*/
-      
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDUK666BeEwvQzeFW_lqx1oUWUiaBAf26Q",
-        authDomain: "p5js-firebase-rip.firebaseapp.com",
-        databaseURL: "https://p5js-firebase-rip-default-rtdb.firebaseio.com",
-        projectId: "p5js-firebase-rip",
-        storageBucket: "p5js-firebase-rip.appspot.com",
-        messagingSenderId: "1068377010670",
-        appId: "1:1068377010670:web:89f5319d23dd55ccc29eff",
-        measurementId: "G-W5MP985XXQ"
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      
-      function writeNewPost(userId, val) {
-        const db = getDatabase();
-
-        // A post entry.
-        const postData = {
-          data1: val
-        };
-
-        // Get a key for a new Post.
-        const newPostKey = push(child(ref(db), 'posts')).key;
-
-        // Write the new post's data simultaneously in the posts list and the user's post list.
-        const updates = {};
-        updates['/posts/' + newPostKey] = postData;
-        updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-        return update(ref(db), updates);
-      }
-      
-      var val = true;
-      function setup() {
-        createCanvas(windowWidth, windowHeight);
-        button = createButton('click me');
-        button.position(windowWidth / 2, windowHeight / 2);
-      }
-
-      function draw() {
-        background(150);
-        button.mousePressed(change);
-        text(val, windowWidth / 2, windowHeight / 2 - 30);
-      }
-
-
-      function change() {
-        if (val) val = false;
-        else val = true;
-        writeNewPost('/', val);
-        drawCircle();
-      }
-      
-      function drawCircle() {
-        ellipse(getRandomInt(100, 1820), getRandomInt(100, 980), 50);
-      }
-      
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * max) + min;
-      }
-    </script>
+    <script src="switch.js"></script>
   </body>
 </html>
